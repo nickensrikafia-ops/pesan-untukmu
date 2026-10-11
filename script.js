@@ -42,7 +42,6 @@ openButton.addEventListener("click", function () {
     }
 });
 
-
 const music = document.getElementById("backgroundMusic");
 const musicButton = document.getElementById("musicButton");
 
@@ -52,8 +51,8 @@ musicButton.addEventListener("click", async function () {
             await music.play();
             musicButton.textContent = "⏸ Jeda Musik 🎵";
         } catch (error) {
-            musicButton.textContent = "Musik gagal diputar 😢";
-            console.error("Gagal memutar musik:", error);
+            console.error(error);
+            alert("Musik belum bisa diputar. Coba periksa format file.");
         }
     } else {
         music.pause();
@@ -61,6 +60,3 @@ musicButton.addEventListener("click", async function () {
     }
 });
 
-music.addEventListener("ended", function () {
-    musicButton.textContent = "▶ Putar Musik 🎵";
-});
